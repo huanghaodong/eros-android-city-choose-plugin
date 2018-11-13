@@ -103,7 +103,6 @@ public class ErosChooseCityModule{
                 case MSG_LOAD_DATA:
                     if (thread == null) {//如果已创建就不再重新创建子线程了
 
-                        Toast.makeText(context, "Begin Parse Data", Toast.LENGTH_SHORT).show();
                         thread = new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -116,12 +115,10 @@ public class ErosChooseCityModule{
                     break;
 
                 case MSG_LOAD_SUCCESS:
-                    Toast.makeText(context, "Parse Succeed", Toast.LENGTH_SHORT).show();
                     isLoaded = true;
                     break;
 
                 case MSG_LOAD_FAILED:
-                    Toast.makeText(context, "Parse Failed", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
