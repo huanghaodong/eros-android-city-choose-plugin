@@ -59,4 +59,7 @@ project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugi
               
     	})
   ```
- 
+ * 返回值
+  ```js
+    	'北京市,北京市,东城区'
+  ```
