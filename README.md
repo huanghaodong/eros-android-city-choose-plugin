@@ -15,7 +15,7 @@ git clone https://github.com/huanghaodong/eros-android-city-choose-plugin.git "c
 
 ``` java
 //这里只需要在最后添加 , ':citychooseplugin'
-include ':app',':sdk',':nexus', ':wxframework', ':erospluginamap'  
+include ':app',':sdk',':nexus', ':wxframework', ':citychooseplugin'  
 
 // chooseCity
 project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugin')
