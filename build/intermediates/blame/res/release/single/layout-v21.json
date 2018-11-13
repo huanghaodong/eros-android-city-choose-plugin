@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/layout-v21/notification_template_custom_big.xml"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/drawable-v21/bg_folder_item.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/imagepicker-0.6.1.aar/f0712a515e5f3e93f6fec89f20ee056d/res/drawable-v21/bg_folder_item.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/drawable-v21/abc_btn_colored_material.xml"
+    }
+]

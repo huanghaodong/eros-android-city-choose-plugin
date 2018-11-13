@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/mipmap-xxhdpi-v4/grid_camera.png",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/imagepicker-0.6.1.aar/f0712a515e5f3e93f6fec89f20ee056d/res/mipmap-xxhdpi-v4/grid_camera.png"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/mipmap-xxhdpi-v4/checkbox_checked.png",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/imagepicker-0.6.1.aar/f0712a515e5f3e93f6fec89f20ee056d/res/mipmap-xxhdpi-v4/checkbox_checked.png"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/mipmap-xxhdpi-v4/text_indicator.png",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/imagepicker-0.6.1.aar/f0712a515e5f3e93f6fec89f20ee056d/res/mipmap-xxhdpi-v4/text_indicator.png"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/mipmap-xxhdpi-v4/checkbox_normal.png",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/imagepicker-0.6.1.aar/f0712a515e5f3e93f6fec89f20ee056d/res/mipmap-xxhdpi-v4/checkbox_normal.png"
+    }
+]

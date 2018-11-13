@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/Android-PickerView-4.1.6.aar/e4707b4aee02c1d4ef120d8e4f8a6784/res/values-en/values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,108,153,200,249,296,345,399",
+                        "endColumns": "52,44,46,48,46,48,53,45",
+                        "endOffsets": "103,148,195,244,291,340,394,440"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/Android-PickerView-4.1.6.aar/e4707b4aee02c1d4ef120d8e4f8a6784/res/values-en/values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,108,153,200,249,296,345,399",
+                        "endColumns": "52,44,46,48,46,48,53,45",
+                        "endOffsets": "103,148,195,244,291,340,394,440"
+                    }
+                }
+            ]
+        }
+    ]
+}

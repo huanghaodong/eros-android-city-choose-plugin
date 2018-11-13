@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/huanghaodong/project/seller/platforms/android/WeexFrameworkWrapper/eroscitychooseplugin/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/huanghaodong/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/0e133adcd4ab8bb2e83d6fc915170f57/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    }
+]
