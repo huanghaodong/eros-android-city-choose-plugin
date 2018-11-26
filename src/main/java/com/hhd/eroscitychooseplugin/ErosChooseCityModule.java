@@ -106,36 +106,6 @@ public class ErosChooseCityModule{
         }
     }
 
-    @SuppressLint("HandlerLeak")
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_LOAD_DATA:
-                    if (thread == null) {//如果已创建就不再重新创建子线程了
-
-                        Toast.makeText(context, "Begin Parse Data", Toast.LENGTH_SHORT).show();
-                        thread = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                // 子线程中解析省市区数据
-                                initJsonData();
-                            }
-                        });
-                        thread.start();
-                    }
-                    break;
-
-                case MSG_LOAD_SUCCESS:
-                    Toast.makeText(context, "Parse Succeed", Toast.LENGTH_SHORT).show();
-                    isLoaded = true;
-                    break;
-
-                case MSG_LOAD_FAILED:
-                    Toast.makeText(context, "Parse Failed", Toast.LENGTH_SHORT).show();
-                    break;
-            }
-        }
-    };
     private void initJsonData() {//解析数据
 
         /**
@@ -193,7 +163,6 @@ public class ErosChooseCityModule{
             options3Items.add(Province_AreaList);
         }
 
-        mHandler.sendEmptyMessage(MSG_LOAD_SUCCESS);
 
     }
     public void showPickerView( final JSCallback callback) {// 弹出选择器
