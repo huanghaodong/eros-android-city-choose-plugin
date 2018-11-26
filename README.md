@@ -56,7 +56,7 @@ project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugi
 | setTitleColor | String | false | 标题文字颜色 |
 | setSubmitColor | String | false | 确定文字颜色 |
 | setCancelColor | String | false | 取消文字颜色 |
-| addressType | String | false | 'costom':自定义地区数据，在如下address中定义  'defalut':使用自带默认数据 |
+| addressType | String | false | 'costom':自定义地区数据，在address中定义  'defalut':使用自带默认数据 |
 | address | Array | false | //自定义的数据，数据格式必须与该格式一致 |
 
 ##### 返回值说明
@@ -108,6 +108,6 @@ project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugi
     	'北京市,北京市,东城区'
   ```
 ## 更新日志
- - 0.0.3  新增地区code编码；新增自定义地区数据。
+ -   新增地区code编码；新增自定义地区数据。
  
  ## 如果觉得有用，请给个start，谢谢
