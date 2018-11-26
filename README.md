@@ -1,6 +1,6 @@
 
 
-**Android集成方式**
+**集成方式**
 
 * 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
 
@@ -63,3 +63,5 @@ project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugi
   ```js
     	'北京市,北京市,东城区'
   ```
+
+ ## 如果觉得有用，请给个start，谢谢
