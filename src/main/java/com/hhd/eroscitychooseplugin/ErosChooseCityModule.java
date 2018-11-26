@@ -11,16 +11,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.google.gson.reflect.TypeToken;
 import com.hhd.eroscitychooseplugin.bean.JsonBean;
 import com.google.gson.Gson;
 import com.taobao.weex.bridge.JSCallback;
 
-import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ErosChooseCityModule{
@@ -40,6 +44,8 @@ public class ErosChooseCityModule{
     private int setTitleBgColor;
     private int setBgColor;
     private int setContentTextSize;
+    private String addressType;
+    private JSONArray address;
 
     private static final int MSG_LOAD_DATA = 0x0001;
     private static final int MSG_LOAD_SUCCESS = 0x0002;
@@ -56,7 +62,8 @@ public class ErosChooseCityModule{
     private static final String KEY_SETTITLEBGCOLOR = "setTitleBgColor";//标题背景颜色 Night mode
     private static final String KEY_SETBGCOLOR = "setBgColor";//滚轮背景颜色 Night mode
     private static final String KEY_SETCONTENTTEXTSIZE = "setContentTextSize";//滚轮文字大小
-
+    private static final String KEY_ADDRESSTYPE = "addressType";//是否使用默认数据源
+    private static final String KEY_ADDRESS = "address";//自定义数据源
     private boolean isLoaded = false;
 
     public ErosChooseCityModule setContext(Context context) {
@@ -76,6 +83,8 @@ public class ErosChooseCityModule{
         this.setTitleBgColor = stringToInt(getOption(params, KEY_SETTITLEBGCOLOR, "#ffffff"));
         this.setBgColor = stringToInt(getOption(params, KEY_SETBGCOLOR, "#ffffff"));
         this.setContentTextSize = getOption(params, KEY_SETCONTENTTEXTSIZE, 16);
+        this.addressType = getOption(params, KEY_ADDRESSTYPE, "default");
+        this.address = (JSONArray) params.get(KEY_ADDRESS);
         return this;
     }
     private int stringToInt(String str){
@@ -96,6 +105,7 @@ public class ErosChooseCityModule{
             }
         }
     }
+
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -103,6 +113,7 @@ public class ErosChooseCityModule{
                 case MSG_LOAD_DATA:
                     if (thread == null) {//如果已创建就不再重新创建子线程了
 
+                        Toast.makeText(context, "Begin Parse Data", Toast.LENGTH_SHORT).show();
                         thread = new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -115,10 +126,12 @@ public class ErosChooseCityModule{
                     break;
 
                 case MSG_LOAD_SUCCESS:
+                    Toast.makeText(context, "Parse Succeed", Toast.LENGTH_SHORT).show();
                     isLoaded = true;
                     break;
 
                 case MSG_LOAD_FAILED:
+                    Toast.makeText(context, "Parse Failed", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -130,9 +143,17 @@ public class ErosChooseCityModule{
          * 关键逻辑在于循环体
          *
          * */
-        String JsonData = new GetJsonDataUtil().getJson(context, "province.json");//获取assets目录下的json文件数据
+        String JsonDataS;
+        JSONArray JsonDataJ;
+        ArrayList<JsonBean> jsonBean;
+        if(this.addressType.equals("custom")){
+            JsonDataJ = this.address;
+            jsonBean = parseData(JsonDataJ);//用Gson 转成实体
+        }else{
+            JsonDataS = new GetJsonDataUtil().getJson(context, "province.json");//获取assets目录下的json文件数据
+            jsonBean = parseData(JsonDataS);//用Gson 转成实体
+        }
 
-        ArrayList<JsonBean> jsonBean = parseData(JsonData);//用Gson 转成实体
 
         /**
          * 添加省份数据
@@ -146,17 +167,17 @@ public class ErosChooseCityModule{
             ArrayList<String> CityList = new ArrayList<>();//该省的城市列表（第二级）
             ArrayList<ArrayList<String>> Province_AreaList = new ArrayList<>();//该省的所有地区列表（第三极）
 
-            for (int c = 0; c < jsonBean.get(i).getCityList().size(); c++) {//遍历该省份的所有城市
-                String CityName = jsonBean.get(i).getCityList().get(c).getName();
+            for (int c = 0; c < jsonBean.get(i).getAreaList().size(); c++) {//遍历该省份的所有城市
+                String CityName = jsonBean.get(i).getAreaList().get(c).getName();
                 CityList.add(CityName);//添加城市
                 ArrayList<String> City_AreaList = new ArrayList<>();//该城市的所有地区列表
 
                 //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
-                if (jsonBean.get(i).getCityList().get(c).getArea() == null
-                        || jsonBean.get(i).getCityList().get(c).getArea().size() == 0) {
+                if (jsonBean.get(i).getAreaList().get(c).getCity() == null
+                        || jsonBean.get(i).getAreaList().get(c).getCity().size() == 0) {
                     City_AreaList.add("");
                 } else {
-                    City_AreaList.addAll(jsonBean.get(i).getCityList().get(c).getArea());
+                    City_AreaList.addAll(jsonBean.get(i).getAreaList().get(c).getCity());
                 }
                 Province_AreaList.add(City_AreaList);//添加该省所有地区数据
             }
@@ -181,10 +202,20 @@ public class ErosChooseCityModule{
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
-                String tx = options1Items.get(options1).getPickerViewText() + "," +
-                        options2Items.get(options1).get(options2) + "," +
-                        options3Items.get(options1).get(options2).get(options3);
-                callback.invoke(tx);
+//                String tx = options1Items.get(options1).getPickerViewText() + "," +
+//                        options2Items.get(options1).get(options2) + "," +
+//                        options3Items.get(options1).get(options2).get(options3)+","+
+//                        options1Items.get(options1).getProvinceCode()+","+
+//                        options1Items.get(options1).getCityList().get(options2).getAreaCode()+","+
+//                        options1Items.get(options1).getCityList().get(options2).getCityCode(options3);
+                HashMap<String, Object> backObj = new HashMap();
+                backObj.put("provinceStr",options1Items.get(options1).getPickerViewText());
+                backObj.put("provinceCode",options1Items.get(options1).getProvinceCode());
+                backObj.put("cityStr", options2Items.get(options1).get(options2));
+                backObj.put("cityCode",options1Items.get(options1).getAreaList().get(options2).getCityCode());
+                backObj.put("areaStr",options3Items.get(options1).get(options2).get(options3));
+                backObj.put("areaCode",options1Items.get(options1).getAreaList().get(options2).getAreaCode(options3));
+                callback.invoke(backObj);
             }
         })
 
@@ -213,17 +244,14 @@ public class ErosChooseCityModule{
     }
     public ArrayList<JsonBean> parseData(String result) {//Gson 解析
         ArrayList<JsonBean> detail = new ArrayList<>();
-        try {
-            JSONArray data = new JSONArray(result);
-            Gson gson = new Gson();
-            for (int i = 0; i < data.length(); i++) {
-                JsonBean entity = gson.fromJson(data.optJSONObject(i).toString(), JsonBean.class);
-                detail.add(entity);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            mHandler.sendEmptyMessage(MSG_LOAD_FAILED);
-        }
+        detail = GsonUtil.fromJson(result, new TypeToken<List<JsonBean>>() {
+        }.getType());
+        return detail;
+    }
+    public ArrayList<JsonBean> parseData(JSONArray result) {//Gson 解析
+        ArrayList<JsonBean> detail = new ArrayList<>();
+        detail = GsonUtil.fromJson(result.toJSONString(), new TypeToken<List<JsonBean>>() {
+        }.getType());
         return detail;
     }
 }

@@ -3,7 +3,10 @@ package com.hhd.eroscitychooseplugin.bean;
 
 import com.contrarywind.interfaces.IPickerViewData;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * TODO<json数据源>
@@ -17,12 +20,13 @@ public class JsonBean implements IPickerViewData {
 
     /**
      * name : 省份
-     * city : [{"name":"北京市","area":["东城区","西城区","崇文区","宣武区","朝阳区"]}]
+     * city : [{"name":"北京市","area":[{"name":"东城区","code":"3"}]},"code":"2"]
+     * code: "1"
      */
 
     private String name;
     private List<CityBean> city;
-
+    private String code;
     public String getName() {
         return name;
     }
@@ -31,7 +35,7 @@ public class JsonBean implements IPickerViewData {
         this.name = name;
     }
 
-    public List<CityBean> getCityList() {
+    public List<CityBean> getAreaList() {
         return city;
     }
 
@@ -46,17 +50,24 @@ public class JsonBean implements IPickerViewData {
     public String getPickerViewText() {
         return this.name;
     }
+    public String getProvinceCode() {
+        return this.code;
+    }
+    public String getPickerViewCode() {
+        return this.name;
+    }
 
 
     public static class CityBean {
         /**
          * name : 城市
-         * area : ["东城区","西城区","崇文区","昌平区"]
+         * area : [{"name":"东城区","code":3}]
+         * code : 2
          */
 
         private String name;
-        private List<String> area;
-
+        private List<Map<String, String>> area;
+        private String code;
         public String getName() {
             return name;
         }
@@ -64,13 +75,25 @@ public class JsonBean implements IPickerViewData {
         public void setName(String name) {
             this.name = name;
         }
+        public String getAreaCode(int i) {
+            String code = area.get(i).get("code");
+            return code;
+        }
+        public String getCityCode() {
+            return this.code;
+        }
+        public List<String> getCity() {
+            List<String> tempArea = new ArrayList<>();
+            for (int i = 0; i < area.size(); i++) {
+                tempArea.add(area.get(i).get("name"));
 
-        public List<String> getArea() {
-            return area;
+            }
+
+            return tempArea;
         }
 
-        public void setArea(List<String> area) {
-            this.area = area;
-        }
+        //public void setArea(List<Map<String, Object>> area) {
+//            this.area = area;
+//        }
     }
 }
