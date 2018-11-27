@@ -72,41 +72,48 @@ project(':citychooseplugin').projectDir = new File(settingsDir,'/citychooseplugi
 | areaCode | String | 三级编码 |
 
 
-	```js
-  	choosecity.open({
- 		setSubmitText:'确定',//确定按钮文字
- 		setCancelText:'取消',//取消按钮文字
-		setTitleText:'地区选择',//标题文字
-		setSubCalSize:14,//确定取消按钮文字大小
-		setTitleSize:14,//标题文字大小
-		setTitleColor:'#000000',//标题文字颜色
-		setSubmitColor:'#000000',//确定文字颜色
-		setCancelColor:'#000000',//取消文字颜色
-		addressType:'custom',//'custom':自定义地区数据，在如下address中定义  'defalut':使用自带默认数据
-		address:[{
-		    name:"重庆",
-		    code:"12",
-		    city:[
-		      {
-		        name:"重庆区县",
-		        code:"13",
-		        area:[
-		          {
-		            name:"彭水",
-		            code:"14"
-		          }
-		        ]
-		      }
-		    ]
-		    }],//自定义的数据，数据格式必须与该格式一致
-		      },(place)=>{
-		              
-		      })
-  ```
+```js
+  choosecity.open({
+        setSubmitText:'确定',//确定按钮文字
+        setCancelText:'取消',//取消按钮文字
+	setTitleText:'地区选择',//标题文字
+	setSubCalSize:14,//确定取消按钮文字大小
+	setTitleSize:14,//标题文字大小
+	setTitleColor:'#000000',//标题文字颜色
+	setSubmitColor:'#000000',//确定文字颜色
+	setCancelColor:'#000000',//取消文字颜色
+	addressType:'custom',//'custom':自定义地区数据，在如下address中定义  'defalut':使用自带默认数据
+	address:[{
+	    name:"重庆",
+	    code:"12",
+	    city:[
+	      {
+	        name:"重庆区县",
+	        code:"13",
+	        area:[
+	          {
+	            name:"彭水",
+	            code:"14"
+	          }
+	        ]
+	      }
+	    ]
+	    }],//自定义的数据，数据格式必须与该格式一致
+	      },(place)=>{
+	              
+	      })
+```
  * 返回值
-  ```js
-    	'北京市,北京市,东城区'
-  ```
+```js
+    {
+      provinceStr:"湖北",
+      provinceCode:"10000",
+      cityStr:"武汉",
+      cityCode:"10010",
+      areaStr:"洪山区",
+      areaCode:"10011"
+    }
+```
 ## 更新日志
  -   新增地区code编码；新增自定义地区数据。
  
