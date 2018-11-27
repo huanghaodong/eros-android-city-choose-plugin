@@ -1,5 +1,7 @@
 
 ![avatar](http://thyrsi.com/t6/617/1543290451x2728278835.gif)
+
+
 **集成方式**
 
 * 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
